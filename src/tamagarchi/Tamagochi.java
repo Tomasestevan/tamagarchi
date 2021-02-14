@@ -4,48 +4,52 @@ public class Tamagochi {
     public String Nombre;
     public int Felicidad;
     public boolean Covid;
-    public String Estado;
     public int CuantasVecesJugo;
+    public Estado Estado ;
 
-    public Tamagochi (String nombre, int felicidad, boolean covid, String estado, int cuantasvecesjugo){
+    public Tamagochi (String nombre, int felicidad, boolean covid, int cuantasvecesjugo,Estado estado ){
         Nombre = nombre;
         Felicidad = felicidad;
         Covid = covid;
-        Estado = estado;
         CuantasVecesJugo = cuantasvecesjugo;
+        Estado = estado;
 
     }
-    public void come() {
-        if (Estado == "hambriento") {Estado = "contento"; }
-
-        if (Estado == "contento"){ Felicidad++;}
-
-        if (Estado == "triste" && Covid == false){Estado = "contento";}
+    public void jugarenconjunto(Tamagochi wach1,Tamagochi wach2){
+        if (wach1.Estado == new Hambriento()) {return;}
+        if (wach1.Estado == new Triste()) {wach1.Estado = new Contento();wach2.Estado = new Contento();}
+        if (wach1.Estado == new Contento()){wach1.juega();wach2.juega();wach2.Felicidad = wach2.Felicidad + 4;}
+        if (wach1.Estado == new Enojado()){wach2.Felicidad = wach2.Felicidad -10; wach1.Estado = new Triste(); wach2.Estado = new Triste();}
     }
+    public void juega() {Estado.jugar(this);}
 
-    public void juega() {
-        if (Estado == "contento") {Felicidad = Felicidad + 2;CuantasVecesJugo++;
-        if (CuantasVecesJugo == 2){CuantasVecesJugo = 0;Estado = "hambriento";}}
+    //
 
-        if (Estado == "triste") {Estado = "contento";}
+    //}
+   // public void come() {
+     //   if (Estado == "hambriento") {Estado = "contento"; }
 
-        if (Estado == "hambriento") {Felicidad = Felicidad - 4;Estado = "triste";}
+       // if (Estado == "contento"){ Felicidad++;}
+
+        //if (Estado == "triste" && Covid == false){Estado = "contento";}
+
+        //if (Estado == "enojado"){Estado = "hambriento";}
+    //}
+
+    //public void juega() {
+      //  if (Estado == "contento") {Felicidad = Felicidad + 2;CuantasVecesJugo++;
+
+        //if (CuantasVecesJugo == 2){CuantasVecesJugo = 0;Estado = "hambriento";}}
+
+       // if (Estado == "triste") {Estado = "contento";}
+
+       // if (Estado == "hambriento") {Felicidad = Felicidad - 4;Estado = "triste";}
+
+       // if (Estado == "enojado") {Felicidad = Felicidad - 15;Estado = "triste";}
+    //}
+
+
+    public void leagarracovid(){
+           Covid = true;
     }
-        public void jugarenconjunto(Tamagochi wach){
-            if (Estado == "hambriento") {return;}
-
-            if (Estado == "triste") {Estado = "contento";wach.Estado = "contento";}
-
-            if (Estado == "contento"){this.juega();wach.juega();wach.Felicidad = wach.Felicidad + 4;}
-
-        }
-
-    }
-    //public void leagarracovid(){
-          //  Covid = true;
-    // }
-
-
-//public void leagarracovid(){
-//  Covid = true;
-//}
+}
