@@ -1,6 +1,6 @@
 package tamagarchi;
 
-public class Tamagochi {
+public abstract class Tamagochi {
     public String Nombre;
     public int Felicidad;
     public boolean Covid;

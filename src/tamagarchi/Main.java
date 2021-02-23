@@ -11,6 +11,8 @@ public class Main {
 
 //	Tamagochi wachin3;
 //	wachin3 = new Tamagochi ("semplo",6, false, "hambriento",2);
+        Gloton wachon1;
+        wachon1 = new Gloton("PELOTUDODEMIERDA",1,true,0,new Triste());
 
 
 
