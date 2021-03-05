@@ -13,5 +13,10 @@ public class Dormilon extends Tamagochi{
         this.Estado = new Contento();
     }
 
+    public void come(){
+        System.out.println("no quiero coger quiero dormir");
+        super.come();
+    }
+
 
 }

@@ -22,6 +22,12 @@ public abstract class Tamagochi {
         if (wach1.Estado == new Enojado()){wach2.Felicidad = wach2.Felicidad -10; wach1.Estado = new Triste(); wach2.Estado = new Triste();}
     }
     public void juega() {Estado.jugar(this);}
+    public void come() {Estado.comer(this);}
+
+    public void leagarracovid(){
+        if (this.Covid == false){this.Covid = true;}
+        else {throw new yaEstaContagiadoException ("ya esta contagiado lley");}
+    }
 
     //
 
@@ -49,7 +55,5 @@ public abstract class Tamagochi {
     //}
 
 
-    public void leagarracovid(){
-           Covid = true;
-    }
+
 }
